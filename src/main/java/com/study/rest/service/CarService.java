@@ -19,7 +19,7 @@ public class CarService {
     // final -> 상수 : 무조건 한 번은 초기화를 해줘야 한다.
     // 이 경우 외부에서 주입된 값(매개변수가 있는 생성자)을 넣어서 초기화 해 줄 수 있음.
     private final CarRepository carRepository;
-    private final String name;
+//    private final String name;
 
 //    public CarService(CarRepository carRepository) {
 //        this.carRepository = carRepository;
