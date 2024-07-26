@@ -13,4 +13,11 @@
         order by
             colorId;
     </select>
+
+    <insert id="save" parameterType="com.study.rest.entity.Color">
+        insert into
+            color_tb
+        values
+            (0, #{colorName});
+    </insert>
 </mapper>

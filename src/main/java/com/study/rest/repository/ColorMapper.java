@@ -8,4 +8,5 @@ import java.util.List;
 @Mapper
 public interface ColorMapper {
     List<Color> findAll();
+    int save(Color color);
 }

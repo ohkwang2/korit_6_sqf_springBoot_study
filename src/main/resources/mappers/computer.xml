@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.rest.repository.ComputerMapper">
+    <!--  id : 메소드 명, resultType : 해당 객체 경로를 넣으면 해당 인터페이스 메소드의 리턴 타입이 자동으로 지정 됨  -->
+    <!--  parameterType은 생략 가능하지만, 가능한한 명시하는게 좋음  -->
+    <insert id="save" parameterType="com.study.rest.entity.Computer">
+        insert into
+            computer_tb
+        values
+            (0, #{company}, #{cpu}, #{ram}, #{ssd});
+    </insert>
+    <delete id="delete" parameterType="integer">
+        delete
+        from
+            computer_tb
+        where
+            computer_id = #{id}
+    </delete>
+    <update id="update" parameterType="com.study.rest.entity.Computer">
+        update
+            computer_tb
+        set
+            company = #{company},
+            cpu = #{cpu},
+            ram = #{ram},
+            ssd = #{ssd}
+        where
+            computer_id = #{computerId};
+    </update>
+    <select id="findComputerByCompanyAndCpu" parameterType="com.study.rest.entity.Computer" resultType="com.study.rest.entity.Computer">
+        select
+            computer_id as computerId,
+            company,
+            cpu,
+            ram,
+            ssd
+        from
+            computer_tb
+        where
+            company like concat("%", #{company}, "%")
+            and cpu like concat("%", #{cpu}, "%")
+        order by
+            computer_id;
+    </select>
+    <select id="findComputerById"
+            parameterType="integer"
+            resultType="com.study.rest.entity.Computer">
+        select
+            computer_id as computerId,
+            company,
+            cpu,
+            ram,
+            ssd
+        from
+            computer_tb
+        where
+            computer_id = #{id};
+    </select>
+</mapper>

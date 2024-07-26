@@ -54,4 +54,10 @@ public class ProductServiceImpl implements ProductService {
         int successCount = sizeMapper.save(reqRegisterSizeDto.toEntity());
         return CommonResponseDto.ofDefault(successCount);
     }
+
+    @Override
+    public CommonResponseDto registerColor(ReqRegisterColorDto reqRegisterColorDto) {
+        int successCount = colorMapper.save(reqRegisterColorDto.toEntity());
+        return CommonResponseDto.ofDefault(successCount);
+    }
 }

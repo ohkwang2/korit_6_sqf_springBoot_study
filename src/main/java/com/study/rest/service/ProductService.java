@@ -11,4 +11,5 @@ public interface ProductService {
     List<Color> getColorListAll();
     CommonResponseDto registerProduct(ProductDto.Register register);
     CommonResponseDto registerSize(ReqRegisterSizeDto reqRegisterSizeDto);
+    CommonResponseDto registerColor(ReqRegisterColorDto reqRegisterColorDto);
 }

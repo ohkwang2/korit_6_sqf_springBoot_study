@@ -98,4 +98,12 @@ public class BasicController {
         CommonResponseDto commonResponseDto = productService.registerSize(reqRegisterSizeDto);
         return ResponseEntity.ok().body(commonResponseDto);
     }
+
+    @CrossOrigin
+    @PostMapping("/api/v1/color")
+    public ResponseEntity<?> registerColorApi(@RequestBody ReqRegisterColorDto reqRegisterColorDto) {
+        log.info("{}", reqRegisterColorDto);
+        CommonResponseDto commonResponseDto = productService.registerColor(reqRegisterColorDto);
+        return ResponseEntity.ok().body(commonResponseDto);
+    }
 }
